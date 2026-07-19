@@ -1,8 +1,6 @@
 <div align="center">
 
-# HiAnimal
-
-### Towards High-fidelity and Animatable Mesh Reconstruction<br>from Single-view In-the-Wild Animal Images
+# HiAnimal: Towards High-fidelity and Animatable Mesh Reconstruction from Single-view In-the-Wild Animal Images
 
 **Huimin Zhang · Zhongjin Luo · Kenkun Liu · Xihe Yang · Haolin Liu · Weikai Chen · Xiaoguang Han**
 
