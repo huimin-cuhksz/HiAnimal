@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HiAnimal reconstructs high-fidelity, animatable 3D quadruped meshes from a single in-the-wild image.">
+    <meta name="theme-color" content="#f7f7f2">
+    <title>HiAnimal — High-fidelity Animatable Animal Reconstruction</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav wrap" aria-label="Primary navigation">
+        <a class="wordmark" href="#top" aria-label="HiAnimal home">HiAnimal</a>
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#installation">Installation</a>
+          <a href="#citation">Citation</a>
+        </div>
+      </nav>
+
+      <div class="hero-content wrap" id="top">
+        <p class="eyebrow">Single-image 3D animal reconstruction</p>
+        <h1>HiAnimal</h1>
+        <p class="subtitle">Towards High-fidelity and Animatable Mesh Reconstruction<br class="desktop-break"> from Single-view In-the-Wild Animal Images</p>
+        <p class="authors">Huimin Zhang · Zhongjin Luo · Kenkun Liu · Xihe Yang · Haolin Liu · Weikai Chen · Xiaoguang Han</p>
+        <div class="actions">
+          <a class="button primary" href="TVCG_HiAnimal.pdf">Paper <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#installation">Code <span class="muted">soon</span></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="video-section wrap" aria-labelledby="teaser-title">
+        <div class="section-heading">
+          <p class="kicker">Teaser</p>
+          <h2 id="teaser-title">From one image to an animation-ready mesh.</h2>
+        </div>
+        <div class="video-frame">
+          <video controls autoplay muted loop playsinline preload="metadata" poster="assets/teaser.jpg" aria-label="HiAnimal reconstruction results teaser video">
+            <source src="tvcg_video_hianimal.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="tvcg_video_hianimal.mp4">Open the video directly.</a>
+          </video>
+        </div>
+      </section>
+
+      <section class="overview wrap" id="overview">
+        <div class="section-heading compact">
+          <p class="kicker">Overview</p>
+          <h2>Detailed geometry.<br>Consistent topology.</h2>
+        </div>
+        <div class="overview-copy">
+          <p class="lead">HiAnimal reconstructs high-fidelity 3D quadrupeds from a single in-the-wild image while producing clean, consistent meshes ready for downstream animation.</p>
+          <p>Our framework combines pixel-aligned implicit priors with the SMAL parametric model. An intermediate normal representation captures image-aligned geometric details, while a dense UV correspondence field aligns the parametric model to the reconstruction.</p>
+          <div class="feature-grid">
+            <article><span>01</span><h3>High fidelity</h3><p>Preserves fine geometric details and aligns the output with the input image.</p></article>
+            <article><span>02</span><h3>In the wild</h3><p>Generalizes across animal species, appearances, and challenging poses.</p></article>
+            <article><span>03</span><h3>Animatable</h3><p>Produces regularized meshes with a predefined, consistent topology.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="code-section" id="installation">
+        <div class="wrap code-layout">
+          <div class="section-heading compact">
+            <p class="kicker light">Get started</p>
+            <h2>Installation<br>&amp; inference</h2>
+            <p class="release-note">Code and pretrained models are coming soon.</p>
+          </div>
+          <div class="terminal" aria-label="Installation commands">
+            <div class="terminal-bar"><span></span><span></span><span></span><small>bash</small></div>
+            <pre><code><span class="comment"># Clone the repository after release</span>
+git clone &lt;repository-url&gt;
+cd HiAnimal
+
+<span class="comment"># Environment and model setup</span>
+<span class="pending"># Coming soon</span>
+
+<span class="comment"># Single-image reconstruction</span>
+python inference.py \
+  --image &lt;input-image&gt; \
+  --output &lt;output-directory&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="citation wrap" id="citation">
+        <div class="section-heading compact">
+          <p class="kicker">Citation</p>
+          <h2>Cite HiAnimal</h2>
+        </div>
+        <div class="bibtex-wrap">
+          <button class="copy-button" type="button" data-copy="bibtex">Copy</button>
+          <pre id="bibtex"><code>@article{zhang2025hianimal,
+  title   = {HiAnimal: Towards High-fidelity and Animatable Mesh Reconstruction from Single-view In-the-Wild Animal Images},
+  author  = {Zhang, Huimin and Luo, Zhongjin and Liu, Kenkun and Yang, Xihe and Liu, Haolin and Chen, Weikai and Han, Xiaoguang},
+  journal = {IEEE Transactions on Visualization and Computer Graphics},
+  year    = {2025}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner"><span>HiAnimal</span><span>High-fidelity · In-the-wild · Animatable</span></div>
+    </footer>
+
+    <script>
+      const copyButton = document.querySelector('[data-copy="bibtex"]');
+      copyButton.addEventListener('click', async () => {
+        const text = document.querySelector('#bibtex code').textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          copyButton.textContent = 'Copied';
+          window.setTimeout(() => { copyButton.textContent = 'Copy'; }, 1600);
+        } catch (_) {
+          copyButton.textContent = 'Select & copy';
+        }
+      });
+    </script>
+  </body>
+</html>
