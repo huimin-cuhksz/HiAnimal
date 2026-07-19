@@ -17,8 +17,8 @@
 The following environment produced the smoothest reconstruction results in our tests.
 
 ```bash
-conda create -n pifu2 python=3.8.10 -y
-conda activate pifu2
+conda create -n hianimal_train python=3.8.10 -y
+conda activate hianimal_train
 
 conda install -c conda-forge pyembree=0.1.6 -y
 
