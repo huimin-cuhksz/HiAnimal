@@ -6,15 +6,9 @@
 
 **Huimin Zhang · Zhongjin Luo · Kenkun Liu · Xihe Yang · Haolin Liu · Weikai Chen · Xiaoguang Han**
 
-[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b?style=flat-square)](./TVCG_HiAnimal.pdf)
-[![Video](https://img.shields.io/badge/Video-MP4-2f6f68?style=flat-square)](./tvcg_video_hianimal.mp4)
 [![Code](https://img.shields.io/badge/Code-Coming_Soon-lightgrey?style=flat-square)](#installation)
 
-<a href="./tvcg_video_hianimal.mp4">
-  <img src="./assets/teaser.gif" width="100%" alt="HiAnimal teaser: single-view animal images and reconstructed animatable 3D meshes">
-</a>
-
-<sub>Click the teaser to view the full-quality video.</sub>
+<img src="./assets/teaser.gif" width="100%" alt="HiAnimal teaser: single-view animal images and reconstructed animatable 3D meshes">
 
 </div>
 
