@@ -2,7 +2,7 @@
 
 # HiAnimal: Towards High-fidelity and Animatable Mesh Reconstruction from Single-view In-the-Wild Animal Images
 
-**Huimin Zhang · Zhongjin Luo · Kenkun Liu · Xihe Yang · Haolin Liu · Weikai Chen · Xiaoguang Han**
+**Huimin Zhang, Zhongjin Luo, Kenkun Liu, Xihe Yang, Haolin Liu, Weikai Chen, Xiaoguang Han**
 
 [![Code](https://img.shields.io/badge/Code-Coming_Soon-lightgrey?style=flat-square)](#installation)
 
