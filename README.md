@@ -12,7 +12,7 @@
 
 ## About
 
-**HiAnimal** reconstructs high-fidelity and animatable 3D quadruped meshes from a single in-the-wild image. It combines a pixel-aligned implicit prior with the parametric SMAL model to preserve fine geometric details while producing clean meshes with consistent topology for animation and simulation.
+**HiAnimal** reconstructs high-fidelity and animatable 3D quadruped meshes from a single in-the-wild image. It predicts a pixel-aligned Occupancy-UV field from an estimated normal map and aligns a parametric SMAL template with the reconstructed surface, producing image-aligned geometry with fine details, consistent topology, and transferable rigging for animation.
 
 ## Installation
 
