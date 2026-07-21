@@ -48,6 +48,3 @@ cd hianimal_train
 # Reconstruct the bundled cat normal map with the included checkpoint.
 ./predict.sh
 ```
-
-See [`hianimal_train/README.md`](./hianimal_train/README.md) for the data
-layout, outputs, checkpoint behavior, and full commands.
