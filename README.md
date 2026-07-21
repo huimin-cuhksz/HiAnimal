@@ -32,19 +32,13 @@ python -m pip install \
 
 ## Training and testing
 
-The [`hianimal_train`](./hianimal_train) directory contains the compact
-Occupancy-UV training and reconstruction pipeline, a pretrained checkpoint,
-10 complete training examples, and cat/sheep test inputs. All bundled paths
-are self-contained; the original large training dataset is not required for
-the included example run.
-
 ```bash
 conda activate hianimal_train
 cd hianimal_train
 
-# Train on the 10 bundled examples.
+# Train
 ./train.sh
 
-# Reconstruct the bundled cat normal map with the included checkpoint.
+# Test
 ./predict.sh
 ```
