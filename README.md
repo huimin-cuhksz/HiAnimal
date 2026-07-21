@@ -32,13 +32,25 @@ python -m pip install \
 
 ## Training and testing
 
+Activate the environment and enter the training directory:
+
 ```bash
 conda activate hianimal_train
 cd hianimal_train
+```
 
-# Train
+### Training
+
+Train the Occupancy-UV reconstruction network using the configuration in `train.sh`:
+
+```bash
 ./train.sh
+```
 
-# Test
+### Testing
+
+Run reconstruction using the input and checkpoint configured in `predict.sh`:
+
+```bash
 ./predict.sh
 ```
