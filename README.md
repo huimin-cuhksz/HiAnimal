@@ -14,8 +14,6 @@
 
 ## Installation
 
-The following environment produced the smoothest reconstruction results in our tests.
-
 ```bash
 conda create -n hianimal_train python=3.8.10 -y
 conda activate hianimal_train
