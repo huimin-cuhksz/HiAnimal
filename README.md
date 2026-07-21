@@ -31,3 +31,25 @@ python -m pip install \
   trimesh==3.5.23 networkx==2.4 matplotlib==3.1.3 \
   pyparsing==2.4.6 python-dateutil==2.8.1 six==1.14.0
 ```
+
+## Training and testing
+
+The [`hianimal_train`](./hianimal_train) directory contains the compact
+Occupancy-UV training and reconstruction pipeline, a pretrained checkpoint,
+10 complete training examples, and cat/sheep test inputs. All bundled paths
+are self-contained; the original large training dataset is not required for
+the included example run.
+
+```bash
+conda activate hianimal_train
+cd hianimal_train
+
+# Train on the 10 bundled examples.
+./train.sh
+
+# Reconstruct the bundled cat normal map with the included checkpoint.
+./predict.sh
+```
+
+See [`hianimal_train/README.md`](./hianimal_train/README.md) for the data
+layout, outputs, checkpoint behavior, and full commands.
