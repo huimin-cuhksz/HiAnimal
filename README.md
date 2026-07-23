@@ -14,6 +14,8 @@
 
 ## Installation
 
+### Training and reconstruction
+
 ```bash
 conda create -n hianimal_train python=3.8.10 -y
 conda activate hianimal_train
@@ -28,6 +30,23 @@ python -m pip install \
   opencv-python==4.2.0.32 Pillow==9.0.0 tqdm==4.43.0 \
   trimesh==3.5.23 networkx==2.4 matplotlib==3.1.3 \
   pyparsing==2.4.6 python-dateutil==2.8.1 six==1.14.0
+```
+
+### Registration
+
+Create a separate environment for correspondence generation and template registration:
+
+```bash
+conda create -n hianimal_registration python=3.9 -y
+conda activate hianimal_registration
+
+python -m pip install torch==2.0.0 torchvision==0.15.1 \
+  --index-url https://download.pytorch.org/whl/cu117
+
+python -m pip install pytorch-lightning==2.0.0 numpy==1.23.0 scipy==1.13.1
+python -m pip install -r hianimal_registration/code/requirements.txt
+python -m pip install \
+  git+https://github.com/facebookresearch/pytorch3d.git@58566963d620cbe067ec53eae62ca262aecfbe27
 ```
 
 ## Training and testing
@@ -54,3 +73,20 @@ Run reconstruction using the input and checkpoint configured in `predict.sh`:
 ```bash
 ./predict.sh
 ```
+
+## Registration
+
+Generate the UV correspondence and fit the registration template:
+
+```bash
+conda activate hianimal_registration
+cd hianimal_registration
+
+./prepare_inputs.sh cat
+GPU_ID=0 ./register.sh cat
+
+./prepare_inputs.sh sheep
+GPU_ID=0 ./register.sh sheep
+```
+
+The registered meshes are saved in `hianimal_registration/result`.

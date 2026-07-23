@@ -1,0 +1,83 @@
+name: "hianimal-registration"
+tag: "${rmspace:,_}"
+exp_root_dir: "../runs"
+seed: 0
+
+data_type: "geometry-registration-datamodule"
+data:
+  source_mesh: "../template/registration_template.obj"
+  target_mesh: "../../hianimal_train/test_results/cat/cat_prediction.obj"
+  corr_path: "../inputs/cat/correspondence.npy"
+  normalize_to_center: true
+
+system_type: "jacobian-deform-system"
+system:
+  refinement: true
+  debug: false
+  geometry_convert_inherit_texture: true
+  geometry_type: "jacobian-mesh"
+  geometry:
+    shape_init: "mesh:../template/registration_template.obj"
+    normalize_mesh: true
+    normalize_to_center: ${data.normalize_to_center}
+    shape_init_params: 1.0
+    radius: 1.0
+    pos_encoding_config:
+      otype: HashGrid
+      n_levels: 16
+      n_features_per_level: 2
+      log2_hashmap_size: 19
+      base_resolution: 16
+      per_level_scale: 1.4472692374403782
+    n_feature_dims: 3
+    shape_init_mesh_up: "+z"
+    shape_init_mesh_front: "+x"
+
+  material_type: "no-material"
+  material:
+    color_activation: sigmoid
+  background_type: "solid-color-background"
+  background:
+    n_output_dims: 3
+    color: [0, 0, 0]
+  renderer_type: "jacobian-nvdiff-rasterizer"
+  renderer:
+    context_type: cuda
+  loggers:
+    wandb:
+      enable: false
+      project: threestudio
+      name: null
+  loss:
+    max_lambda_deform: 1.0
+    min_lambda_deform: 0.01
+    decay_steps: 4000
+    lambda_albedo: 0.0
+    lambda_cd: 1.0
+    lambda_mask: 0.0
+    lambda_depth: 0.0
+    lambda_normal: 0.0
+    max_lambda_reg: 0.1
+    min_lambda_reg: 0.001
+  optimizer:
+    name: Adam
+    args:
+      lr: 0.0025
+      betas: [0.9, 0.99]
+      eps: 1.0e-15
+    params:
+      geometry:
+        lr: 0.0025
+
+trainer:
+  max_steps: 5000
+  log_every_n_steps: 1
+  num_sanity_val_steps: 0
+  val_check_interval: 1000
+  enable_progress_bar: true
+  precision: 32
+
+checkpoint:
+  save_last: true
+  save_top_k: -1
+  every_n_train_steps: ${trainer.max_steps}
