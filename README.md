@@ -84,9 +84,4 @@ cd hianimal_registration
 
 ./prepare_inputs.sh cat
 GPU_ID=0 ./register.sh cat
-
-./prepare_inputs.sh sheep
-GPU_ID=0 ./register.sh sheep
 ```
-
-The registered meshes are saved in `hianimal_registration/result`.
