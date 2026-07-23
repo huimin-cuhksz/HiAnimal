@@ -14,7 +14,7 @@
 
 ## Installation
 
-### Training and reconstruction
+### Reconstruction network environment
 
 ```bash
 conda create -n hianimal_train python=3.8.10 -y
@@ -49,7 +49,7 @@ python -m pip install \
   git+https://github.com/facebookresearch/pytorch3d.git@58566963d620cbe067ec53eae62ca262aecfbe27
 ```
 
-## Training and testing
+## Reconstruction network
 
 Activate the environment and enter the training directory:
 
@@ -66,7 +66,7 @@ Train the Occupancy-UV reconstruction network using the configuration in `train.
 ./train.sh
 ```
 
-### Testing
+### Inference
 
 Run reconstruction using the input and checkpoint configured in `predict.sh`:
 
